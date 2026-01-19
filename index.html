@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>T-kasets | モバイルアプリ開発</title>
+  <link rel="icon" href="T-kasetsアイコン.png" type="image/png">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    
+    body { 
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Hiragino Sans', sans-serif; 
+      line-height: 1.8; 
+      color: #333; 
+      background: #f8f9fa;
+    }
+
+    /* ヘッダー */
+    header {
+      background: #1a2a4a;
+      padding: 20px 0;
+      position: fixed;
+      width: 100%;
+      top: 0;
+      z-index: 100;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    }
+
+    .header-inner {
+      max-width: 1000px;
+      margin: 0 auto;
+      padding: 0 20px;
+      display: flex;
+      align-items: center;
+      justify-content: flex-start;
+    }
+
+    .logo-area {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .logo-area img {
+      width: 40px;
+      height: 40px;
+      border-radius: 8px;
+    }
+
+    .logo-area span {
+      color: white;
+      font-size: 20px;
+      font-weight: 700;
+    }
+
+    /* ヒーローセクション */
+    .hero {
+      background: linear-gradient(135deg, #1a2a4a 0%, #2d4a7c 100%);
+      padding: 160px 20px 100px;
+      text-align: center;
+      color: white;
+    }
+
+    .hero h1 {
+      font-size: 42px;
+      font-weight: 700;
+      margin-bottom: 15px;
+    }
+
+    .hero p {
+      font-size: 18px;
+      opacity: 0.9;
+      max-width: 500px;
+      margin: 0 auto;
+    }
+
+    /* サービスセクション */
+    .services {
+      padding: 80px 20px;
+      max-width: 1000px;
+      margin: 0 auto;
+    }
+
+    .section-title {
+      text-align: center;
+      margin-bottom: 50px;
+    }
+
+    .section-title h2 {
+      font-size: 28px;
+      color: #1a2a4a;
+      margin-bottom: 10px;
+    }
+
+    .section-title p {
+      color: #666;
+      font-size: 15px;
+    }
+
+    .app-card {
+      background: white;
+      border-radius: 16px;
+      padding: 40px;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+      display: flex;
+      align-items: center;
+      gap: 40px;
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    .app-logo {
+      flex-shrink: 0;
+    }
+
+    .app-logo img {
+      width: 200px;
+      height: auto;
+    }
+
+    .app-info h3 {
+      font-size: 24px;
+      color: #1a2a4a;
+      margin-bottom: 10px;
+    }
+
+    .app-info p {
+      color: #666;
+      font-size: 15px;
+      margin-bottom: 20px;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 12px 24px;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 14px;
+      transition: transform 0.2s, box-shadow 0.2s;
+      background: #1a2a4a;
+      color: white;
+    }
+
+    .btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 4px 15px rgba(0,0,0,0.15);
+    }
+
+    /* 会社情報セクション */
+    .about {
+      background: #1a2a4a;
+      color: white;
+      padding: 80px 20px;
+    }
+
+    .about-inner {
+      max-width: 800px;
+      margin: 0 auto;
+      text-align: center;
+    }
+
+    .about h2 {
+      font-size: 28px;
+      margin-bottom: 30px;
+    }
+
+    .about-content {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 40px;
+      text-align: left;
+      margin-top: 40px;
+    }
+
+    .about-item h4 {
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      opacity: 0.7;
+      margin-bottom: 8px;
+    }
+
+    .about-item p {
+      font-size: 16px;
+    }
+
+    .about-item a {
+      color: white;
+      text-decoration: none;
+    }
+
+    .about-item a:hover {
+      text-decoration: underline;
+    }
+
+    /* フッター */
+    footer {
+      background: #0f1a2e;
+      color: rgba(255,255,255,0.6);
+      padding: 30px 20px;
+      text-align: center;
+    }
+
+    .copyright {
+      font-size: 13px;
+    }
+
+    /* レスポンシブ */
+    @media (max-width: 768px) {
+      .hero h1 {
+        font-size: 32px;
+      }
+
+      .app-card {
+        flex-direction: column;
+        text-align: center;
+        padding: 30px;
+      }
+
+      .app-logo img {
+        width: 160px;
+      }
+
+      .about-content {
+        text-align: center;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ヘッダー -->
+  <header>
+    <div class="header-inner">
+      <div class="logo-area">
+        <img src="T-kasetsアイコン.png" alt="T-kasets">
+        <span>T-kasets</span>
+      </div>
+    </div>
+  </header>
+
+  <!-- ヒーロー -->
+  <section class="hero">
+    <h1>T-kasets</h1>
+    <p>日常をもっと便利に、楽しくするモバイルアプリを開発しています。</p>
+  </section>
+
+  <!-- サービス -->
+  <section class="services">
+    <div class="section-title">
+      <h2>サービス</h2>
+      <p>現在提供中のアプリケーション</p>
+    </div>
+
+    <div class="app-card">
+      <div class="app-logo">
+        <img src="みんなどっち派logo.png" alt="みんなどっち派？">
+      </div>
+      <div class="app-info">
+        <h3>みんなどっち派？</h3>
+        <p>日常の選択を可視化するアンケートアプリ。年代・性別・地域別の結果比較で、「世の中の普通」がわかります。</p>
+        <a href="https://apps.apple.com/jp/app/id6757598659" class="btn">App Storeで見る</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- 会社情報 -->
+  <section class="about">
+    <div class="about-inner">
+      <h2>会社情報</h2>
+      <div class="about-content">
+        <div class="about-item">
+          <h4>屋号</h4>
+          <p>T-kasets</p>
+        </div>
+        <div class="about-item">
+          <h4>事業内容</h4>
+          <p>モバイルアプリの企画・開発・運営</p>
+        </div>
+        <div class="about-item">
+          <h4>お問い合わせ</h4>
+          <p><a href="mailto:info@t-kasets.com">info@t-kasets.com</a></p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- フッター -->
+  <footer>
+    <p class="copyright">&copy; 2025 T-kasets. All rights reserved.</p>
+  </footer>
+
+</body>
+</html>
