@@ -184,6 +184,18 @@
       box-shadow: none;
     }
 
+    .btn-outline {
+      background: transparent;
+      color: #1a2a4a;
+      border: 1.5px solid #1a2a4a;
+    }
+
+    .btn-group {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
     /* Aboutセクション */
     .about {
       background: #1a2a4a;
@@ -262,6 +274,10 @@
       .about-content {
         text-align: center;
       }
+
+      .btn-group {
+        justify-content: center;
+      }
     }
   </style>
 </head>
@@ -313,14 +329,6 @@
         <a href="https://apps.apple.com/jp/app/id6757598659" class="btn">App Storeで見る</a>
       </div>
     </div>
-  </section>
-
-  <!-- Webアプリ -->
-  <section class="services" style="padding-top: 0;">
-    <div class="section-title">
-      <h2>Webアプリ</h2>
-      <p>登録不要・ブラウザですぐ使える無料アプリ</p>
-    </div>
 
     <!-- 家系図パズル -->
     <div class="app-card">
@@ -330,7 +338,10 @@
       <div class="app-info">
         <h3>家系図パズル</h3>
         <p>人物カードを線でつないで家系図を完成させる、頭の体操パズル。天皇家・ハプスブルク家などの歴史上の人物から、サザエさん・進撃の巨人といったフィクション、ギリシャ神話や競走馬の血統まで、幅広い「系譜」に挑戦できます。登録不要・無料。</p>
-        <a href="https://kakeizu.t-kasets.com" class="btn">遊んでみる</a>
+        <div class="btn-group">
+          <a href="https://apps.apple.com/jp/app/id6790149399" class="btn">App Storeで見る</a>
+          <a href="https://kakeizu.t-kasets.com" class="btn btn-outline">Webブラウザで開く</a>
+        </div>
       </div>
     </div>
 
@@ -342,7 +353,7 @@
       <div class="app-info">
         <h3>早退届ジェネレーター</h3>
         <p>ランダムで適当な早退理由を作れます。</p>
-        <a href="https://soutai.t-kasets.com" class="btn">使ってみる</a>
+        <a href="https://soutai.t-kasets.com" class="btn">Webブラウザで開く</a>
       </div>
     </div>
 
@@ -354,7 +365,7 @@
       <div class="app-info">
         <h3>退職届ジェネレーター</h3>
         <p>ランダムで適当な退職理由を作れます。</p>
-        <a href="https://taishoku.t-kasets.com" class="btn">使ってみる</a>
+        <a href="https://taishoku.t-kasets.com" class="btn">Webブラウザで開く</a>
       </div>
     </div>
   </section>
