@@ -55,6 +55,41 @@
       font-weight: 700;
     }
 
+    /* 固定noteリンク（ヘッダーの下・スクロールしても残る） */
+    .note-float {
+      position: fixed;
+      top: 92px;
+      left: 20px;
+      z-index: 90;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 8px 14px;
+      background: #ffffff;
+      color: #1a2a4a;
+      border: 1.5px solid #1a2a4a;
+      border-radius: 999px;
+      font-size: 13px;
+      font-weight: 700;
+      text-decoration: none;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.12);
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+
+    .note-float:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 4px 14px rgba(0,0,0,0.18);
+    }
+
+    @media (max-width: 768px) {
+      .note-float {
+        top: 84px;
+        left: 12px;
+        padding: 6px 12px;
+        font-size: 12px;
+      }
+    }
+
     /* サービスセクション */
     .services {
       padding: 80px 20px;
@@ -261,6 +296,9 @@
       </div>
     </div>
   </header>
+
+  <!-- 固定noteリンク -->
+  <a href="https://note.com/t_kasets/portal" target="_blank" rel="noopener" class="note-float">📝 note</a>
 
   <!-- サービス -->
   <section class="services" style="padding-top: 120px;">
