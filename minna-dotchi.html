@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>みんなどっち派？ ― 「世間の普通」を投票で可視化するアプリ | T-kasets</title>
+  <meta name="description" content="バスタオルは毎日洗う？ 子どものスマホは何歳から？ 明確な正解がない日常の選択を投票で可視化するアプリ「みんなどっち派？」の使い方と、開発の背景を紹介します。">
+  <link rel="icon" href="T-kasetsアイコン.png" type="image/png">
+  <!-- Google AdSense（サイト所有権の確認＋広告配信） -->
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1081803676733486" crossorigin="anonymous"></script>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Hiragino Sans', sans-serif;
+      line-height: 1.9; color: #333; background: #f8f9fa;
+    }
+    header {
+      background: #1a2a4a; padding: 18px 0; position: sticky; top: 0; z-index: 100;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    }
+    .header-inner {
+      max-width: 800px; margin: 0 auto; padding: 0 20px;
+      display: flex; align-items: center; gap: 12px;
+    }
+    .header-inner img { width: 34px; height: 34px; border-radius: 7px; }
+    .header-inner a { color: #fff; font-size: 18px; font-weight: 700; text-decoration: none; }
+    main { max-width: 800px; margin: 0 auto; padding: 48px 20px 80px; }
+    h1 { font-size: 28px; color: #1a2a4a; margin-bottom: 8px; line-height: 1.5; }
+    .updated { color: #888; font-size: 13px; margin-bottom: 36px; }
+    h2 {
+      font-size: 19px; color: #1a2a4a; margin: 34px 0 12px;
+      padding-bottom: 8px; border-bottom: 2px solid #e5e7eb;
+    }
+    h3 { font-size: 16px; color: #1a2a4a; margin: 22px 0 8px; }
+    p, li { font-size: 15px; color: #444; }
+    p { margin-bottom: 12px; }
+    ul, ol { margin: 0 0 12px 22px; }
+    li { margin-bottom: 8px; }
+    a { color: #2d4a7c; }
+    .lead { font-size: 15px; color: #444; margin-bottom: 8px; }
+    .back { display: inline-block; font-size: 14px; text-decoration: none; margin-bottom: 20px; }
+    .back:hover { text-decoration: underline; }
+    .app-head {
+      display: flex; align-items: center; gap: 16px; margin-bottom: 28px;
+      background: #fff; border: 1px solid #e5e7eb; border-radius: 12px; padding: 18px 20px;
+    }
+    .app-head img { width: 260px; max-width: 100%; height: auto; border-radius: 8px; flex-shrink: 0; }
+    .app-head .btn {
+      display: inline-block; margin-top: 6px; background: #1a2a4a; color: #fff;
+      text-decoration: none; font-size: 14px; font-weight: 600;
+      padding: 8px 18px; border-radius: 6px;
+    }
+    .reason { background: #fff; border: 1px solid #e5e7eb; border-radius: 10px; padding: 16px 20px; margin-bottom: 12px; }
+    .reason h3 { margin-top: 0; }
+    .reason p:last-child { margin-bottom: 0; }
+    .cat-table { width: 100%; border-collapse: collapse; margin-bottom: 16px; font-size: 14.5px; }
+    .cat-table th, .cat-table td { border: 1px solid #e5e7eb; padding: 9px 12px; text-align: left; vertical-align: top; }
+    .cat-table th { background: #eef1f6; color: #1a2a4a; white-space: nowrap; width: 30%; }
+    .table-wrap { overflow-x: auto; }
+    footer {
+      background: #0f1a2e; color: rgba(255,255,255,0.6); padding: 26px 20px; text-align: center; font-size: 13px;
+    }
+    footer a { color: rgba(255,255,255,0.85); text-decoration: none; }
+    @media (max-width: 560px) {
+      .app-head { flex-direction: column; text-align: center; }
+      .cat-table th { width: auto; white-space: normal; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="header-inner">
+      <img src="T-kasetsアイコン.png" alt="T-kasets">
+      <a href="/">T-kasets</a>
+    </div>
+  </header>
+
+  <main>
+    <a href="/" class="back">← トップへ戻る</a>
+    <h1>みんなどっち派？ ―<br>「世間の普通」を投票で可視化するアプリ</h1>
+    <p class="updated">2026年7月22日</p>
+
+    <div class="app-head">
+      <img src="みんなどっち派logo.png" alt="みんなどっち派？">
+      <div>
+        <p style="margin-bottom:4px;"><b>みんなどっち派？</b>／ iPhone・無料・登録不要</p>
+        <p style="margin-bottom:0; font-size:14px; color:#666;">日常の選択に投票して、年代別・性別・地域別の結果を見られるアンケートアプリです。</p>
+        <a href="https://apps.apple.com/jp/app/id6757598659" class="btn">App Store で見る</a>
+      </div>
+    </div>
+
+    <p class="lead">バスタオルは毎日洗う人が多いのか。友人への誕生日プレゼントはいくらが相場なのか。子どもにスマホを持たせるのは何歳からが普通なのか。</p>
+    <p>明確な正解がないまま、なんとなく自分のやり方を続けている領域が、日常には意外なほど多く存在します。気になって検索してみても、出典のわからない記事や、Q&amp;Aサイトに寄せられた数件の回答が見つかるだけで、「結局、世間ではどうなのか」はわからないまま終わってしまう。</p>
+    <p>その「わからないまま」を、投票で可視化しようとしたのが <b>みんなどっち派？</b> です。このページでは、アプリの使い方と、そもそもなぜこれを作ろうと思ったのかを紹介します。</p>
+
+    <h2>使い方（3ステップ）</h2>
+    <ol>
+      <li><b>質問を選ぶ</b>：「家でスリッパを履く？」「きのこの山 vs たけのこの里」など、気になるテーマを選びます。</li>
+      <li><b>投票する</b>：自分の答えをタップするだけです。アカウント登録は必要ありません。</li>
+      <li><b>結果を見る</b>：投票するとその場で全体の集計が表示され、自分が多数派なのか少数派なのかがわかります。</li>
+    </ol>
+    <p>1回の投票は数秒で終わります。</p>
+
+    <h3>年代・性別・地域で結果を比べる</h3>
+    <p>一定数以上の回答が集まった質問では、属性別の内訳を見られます。ここが一番おもしろい部分で、全体の数字だけを見ていたときには気づかなかった差が現れます。「20代と50代で意見が真逆になる」「男女で大きく割れる」といった質問は、全体の比率だけを見ても平均に埋もれてしまい、見えてきません。</p>
+
+    <h3>自分で質問を作る</h3>
+    <p>用意された質問に答えるだけでなく、自分で質問を作って投稿できます。「これって普通なんだろうか」と思ったことをそのまま質問にして、他のユーザーから回答を集められます。</p>
+
+    <h2>なぜ人は「普通」を知りたがるのか</h2>
+    <p>このアプリを作る前に、自分が「普通」を知りたいと感じる項目をひたすら書き出して分類する、という作業をしました。その過程で気づいたのは、<b>「普通が気になる」と一口に言っても、その動機は同じではない</b>ということです。整理すると、4つのパターンに分かれました。</p>
+
+    <div class="reason">
+      <h3>① 自己肯定 ― 自分はおかしくない、と確認したい</h3>
+      <p>すでに自分の中では答えが出ていて、それを肯定してほしいだけ、という状態です。背中を押されたいのであって、判断材料が欲しいわけではありません。</p>
+    </div>
+    <div class="reason">
+      <h3>② 意思決定 ― 判断の手がかりがほしい</h3>
+      <p>これから選ぶ場面で迷っていて、正解がわからない状態です。相場やボリュームゾーンを知ることが、そのまま決断の助けになります。</p>
+    </div>
+    <div class="reason">
+      <h3>③ コミュニケーション ― 話のネタにしたい</h3>
+      <p>正解を求めているわけではなく、意見が割れること自体を楽しみたい状態です。結果が僅差であるほど盛り上がります。</p>
+    </div>
+    <div class="reason">
+      <h3>④ リスク回避 ― 外れて恥をかきたくない</h3>
+      <p>不安の根っこに「他人の目」があるパターンです。冠婚葬祭の金額や手土産の相場など、間違えると気まずい領域で強く働きます。</p>
+    </div>
+
+    <p>同じ「普通が知りたい」でも、①なら全体の比率を見れば足りますが、②では自分と条件の近い人の回答でなければ参考になりません。属性別表示を用意したのは、この違いがあるからです。</p>
+
+    <h2>収録している質問のカテゴリ</h2>
+    <p>質問は、日常生活の中で「正解が明示されていない」領域から選んでいます。</p>
+    <div class="table-wrap">
+      <table class="cat-table">
+        <tr><th>暮らし</th><td>掃除機をかける頻度、バスタオルの洗濯頻度、家でスリッパを履くか、夕飯の時間</td></tr>
+        <tr><th>健康・美容</th><td>シャンプーの頻度、運動の習慣、睡眠時間、美容院に行く間隔</td></tr>
+        <tr><th>子育て</th><td>スマホを持たせる年齢、塾に通わせる時期、お小遣いの金額、門限</td></tr>
+        <tr><th>仕事</th><td>残業時間、有給の取得率、転職回数、飲み会への参加</td></tr>
+        <tr><th>学校・勉強</th><td>通塾の割合、受験の時期、勉強時間、習い事の数</td></tr>
+        <tr><th>お金</th><td>貯蓄額の目安、家計簿をつけるか、月の食費、ご祝儀の金額</td></tr>
+        <tr><th>人間関係</th><td>友人へのプレゼント予算、LINEの返信速度、連絡の頻度</td></tr>
+        <tr><th>恋愛・結婚</th><td>結婚した年齢、デート代の負担割合、記念日の祝い方</td></tr>
+        <tr><th>マナー・常識</th><td>許容できる遅刻時間、敬語の使い方、手土産の相場</td></tr>
+        <tr><th>好み・価値観</th><td>きのこの山 vs たけのこの里、犬派 vs 猫派、朝型 vs 夜型</td></tr>
+        <tr><th>政治・社会</th><td>各種政策への賛否、選挙への投票、夫婦別姓への賛否</td></tr>
+      </table>
+    </div>
+    <p>「好み・価値観」は③のコミュニケーション、「マナー・常識」は④のリスク回避、「子育て」や「お金」は②の意思決定に寄る、というように、カテゴリごとに刺さる動機が違います。</p>
+
+    <h2>設計で迷ったこと</h2>
+    <h3>結果は、投票してからでないと見えない</h3>
+    <p>結果を先に見せる作りにはしませんでした。集計を見てから投票すると、多数派に引きずられた票が入ってしまい、データそのものが歪むからです。結果だけ見たい人にとっては一手間ですが、投票数が増えるほど結果の信頼性が上がり、アプリの価値も上がる。ここは信頼性を優先しました。</p>
+    <h3>結果をそのまま共有できるようにした</h3>
+    <p>投票結果はワンタップで X に投稿できます。「あなたは38%の少数派です」といった結果が画像として生成されるので、そのまま貼れます。意外な結果や、意見が真っ二つに割れた質問ほど話題になりやすく、それがまた新しい投票を呼びます。</p>
+
+    <h2>こんなときに</h2>
+    <ul>
+      <li>自分のやり方が世間とずれていないか確かめたいとき</li>
+      <li>金額や年齢の「相場」を知りたいとき</li>
+      <li>友人や家族との話のネタがほしいとき</li>
+    </ul>
+    <p>iPhone 向けに無料で公開しています。登録は不要で、開いてすぐ投票できます。</p>
+    <p><a href="https://apps.apple.com/jp/app/id6757598659">App Store でみんなどっち派？を見る</a></p>
+  </main>
+
+  <footer>
+    <p><a href="/">← T-kasets トップへ</a></p>
+    <p style="opacity:0.7; margin-top:8px;">© t-kasets.com</p>
+  </footer>
+</body>
+</html>
