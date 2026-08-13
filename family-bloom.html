@@ -67,6 +67,7 @@
     figcaption {
       font-size: 12.5px; color: #888; text-align: center; margin-top: 8px;
     }
+    .figure-row.compact img { max-width: 260px; margin: 0 auto; }
     .figure-row {
       display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-bottom: 20px;
     }
@@ -115,17 +116,19 @@
     <p>n・k・A・B・C・u・hという、たった7つの変数の値を変化させるだけで、無数の花弁の形を作ることができます。</p>
 
     <h3>変数ごとの花の形（A=0.25, B=0.12, C=0.07 の場合）</h3>
-    <figure class="dark">
-      <img src="family-bloom-flat-shapes.webp" alt="n（花弁数）とk（周期）を変えたときの花弁の平面形（上から見た形）の変化を7×7のグリッドで示した図">
-      <figcaption>花弁を上から見た形 ― n（花弁数）とk（周期）を変えたときの変化</figcaption>
-    </figure>
-    <figure class="dark">
-      <img src="family-bloom-side-shapes.webp" alt="u（反り）とh（高さ）を変えたときの花弁の立体形（横から見た形）の変化を示した図">
-      <figcaption>花弁を横から見た形 ― u（反り）とh（高さ）を変えたときの変化</figcaption>
-    </figure>
+    <div class="figure-row compact">
+      <figure class="dark">
+        <img src="family-bloom-flat-shapes.webp" alt="n（花弁数）とk（周期）を変えたときの花弁の平面形（上から見た形）の変化を7×7のグリッドで示した図">
+        <figcaption>花弁を上から見た形 ― n（花弁数）とk（周期）を変えたときの変化</figcaption>
+      </figure>
+      <figure class="dark">
+        <img src="family-bloom-side-shapes.webp" alt="u（反り）とh（高さ）を変えたときの花弁の立体形（横から見た形）の変化を示した図">
+        <figcaption>花弁を横から見た形 ― u（反り）とh（高さ）を変えたときの変化</figcaption>
+      </figure>
+    </div>
 
-    <h2>現実の花瓶の上に、数式の花を咲かせる</h2>
-    <p>ただ画面の中に収めるのではなく、ペッパーズゴーストという光学的な手法を使って、数式で描いた花をリアルの花瓶の上に浮かび上がらせています。ディスプレイの映像がアクリル板に反射することで、何もない空中に像が浮いて見える仕組みです。数式の花が、現実の空間にふわりと立ち上がります。</p>
+    <h2>現実の花瓶の上に咲かせる、という構想</h2>
+    <p>このブラウザ版は、あくまで数式で花の形をつくる部分を体験できるプロトタイプで、ここから先の仕組みは実装していません。もともとは、ディスプレイの映像をアクリル板に反射させて空中に像を浮かび上がらせる「ペッパーズゴースト」という手法を使い、数式で描いた花を画面の中だけに収めず、現実の花瓶の上に浮かび上がらせる、という構想を持っていました。実際に、その仕組みを再現した実機プロトタイプも試作しています。</p>
     <div class="figure-row">
       <figure>
         <img src="family-bloom-principle.png" alt="ペッパーズゴーストを用いた空中ディスプレイの原理図。ディスプレイの映像がアクリル板に反射し、観察者の目には空中に像が浮いて見える">
